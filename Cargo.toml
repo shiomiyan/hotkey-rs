@@ -9,11 +9,14 @@ authors = ["James Birtles <jameshbirtles@gmail.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-
 [target.'cfg(windows)'.dependencies]
-winapi = { version = "0.3.8", features = ["winuser"] }
+[dependencies.windows]
+version = "0.34.0"
+features = [
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_Foundation",
+]
 
 [target.'cfg(target_os = "linux")'.dependencies]
 x11-dl = "2.18.1"
